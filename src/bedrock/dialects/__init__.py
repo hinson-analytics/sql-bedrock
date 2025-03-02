@@ -4,6 +4,6 @@ module bedrock.dialects
 Contains definitions related to SQL dialects supported by sql-bedrock.
 """
 
-__all__ = ["SqlDialectType"]
+__all__ = ["SqlDialect"]
 
-from .sqldialecttype import SqlDialectType
+from .sqldialect import SqlDialect

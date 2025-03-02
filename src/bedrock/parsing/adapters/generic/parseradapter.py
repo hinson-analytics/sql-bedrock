@@ -8,6 +8,7 @@ from abc import ABCMeta, abstractmethod
 import os
 from typing import List
 
+from ....dialects import SqlDialect
 from ....expressions import Expression
 
 
@@ -20,7 +21,9 @@ class ParserAdapter(metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def parse_query(self: "ParserAdapter", query: str) -> List[Expression]:
+    def parse_query(
+        self: "ParserAdapter", query: str, dialect: SqlDialect
+    ) -> List[Expression]:
         """
         Parse a SQL query string into an Expression object.
 
@@ -39,6 +42,7 @@ class ParserAdapter(metaclass=ABCMeta):
     def parse_file(
         self: "ParserAdapter",
         file_path: str | bytes | os.PathLike,
+        dialect: SqlDialect,
         encoding: str = "utf-8",
     ) -> List[Expression]:
         """
@@ -60,4 +64,4 @@ class ParserAdapter(metaclass=ABCMeta):
         """
 
         with open(file_path, "r", encoding=encoding) as query_file:
-            return self.parse_query(query_file.read())
+            return self.parse_query(query_file.read(), dialect=dialect)

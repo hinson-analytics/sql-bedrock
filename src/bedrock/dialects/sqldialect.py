@@ -1,14 +1,14 @@
 """
-module bedrock.dialects.sqldialecttype
+module bedrock.dialects.sqldialect
 
-Contains the SqlDialectType enum for supported SQL dialects.
+Contains the SqlDialect enum for supported SQL dialects.
 """
 
 from enum import auto, StrEnum, unique
 
 
 @unique
-class SqlDialectType(StrEnum):
+class SqlDialect(StrEnum):
     """Enum for supported SQL dialects."""
 
     SQLITE = auto()
