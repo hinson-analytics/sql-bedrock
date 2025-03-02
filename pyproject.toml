@@ -1,0 +1,27 @@
+[project]
+name = "sql-bedrock"
+version = "0.1.0"
+description = "A library for static analysis of SQL queries"
+authors = [
+    {name = "Will Hinson",email = "email@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "sqlglot (>=26.7.0,<27.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "bedrock", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.15.0,<2.0.0",
+    "pylint>=3.3.4,<4.0.0",
+    "ruff>=0.9.9,<0.10.0"
+]

@@ -1,0 +1,9 @@
+build
+*.egg-info
+.mypy_cache
+poetry.lock
+__pycache__
+.ruff_cache
+test.py
+.venv
+venv
